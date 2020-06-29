@@ -36,7 +36,6 @@ include ("header.php");
 
 	<div class="container-fluid" id="containerlogginpage">
 		<textarea id="diary" class="form-control"><?php echo $diarycontent; ?></textarea>
-		
 	</div>
 
 <?php
