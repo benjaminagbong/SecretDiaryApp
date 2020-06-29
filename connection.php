@@ -1,6 +1,6 @@
 <?php
 
-$link = mysqli_connect("localhost", "root", "", "secretdi");
+$link = mysqli_connect("localhost", "root", "mysql", "secretdi");
 
 	if (mysqli_connect_error()) {
 		# code...
