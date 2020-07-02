@@ -4,6 +4,7 @@ $diarycontent = "";
 
 	if (array_key_exists("id", $_COOKIE)) {
 		# code...
+		$id = $_SEESION['id'];
 		$_SEESION['id'] = $_COOKIE['id'];
 	}
 	if (array_key_exists("id", $_SEESION)) {
@@ -18,8 +19,9 @@ $diarycontent = "";
 		$diarycontent = $row['diary'];
 
 	}else{
+		setcookie("user", "", time() - 3600);
+		session_unset();
 		header("Location: index.php");
-
 	}
 include ("header.php");
 ?>
@@ -30,13 +32,14 @@ include ("header.php");
     <div class=" my-2 my-lg-0">
       
       <a href='secretDiary.php?logout=1'><button class="btn btn-success " type="submit">LogOut</button></a>
-    </div>
+	</div>
+
   </div>
 </nav>
-
 	<div class="container-fluid" id="containerlogginpage">
 		<textarea id="diary" class="form-control"><?php echo $diarycontent; ?></textarea>
 	</div>
+	
 
 <?php
 include("footer.php");

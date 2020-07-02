@@ -1,6 +1,6 @@
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery-3.4.1.js"></script>
+<!-- <script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script> -->
 
 	<script type="text/javascript">
 		

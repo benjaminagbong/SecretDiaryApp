@@ -3,17 +3,22 @@ session_start();
 
 $error="";
 
-if (array_key_exists("logout", $_GET)) {
-	# code...
-	unset($_SESSION);
+// if (array_key_exists("logout", $_GET)) {
+// 	# code...
+// 	unset($_SESSION);
 
-	setcookie("id", "", time() - 60*60);
-	$_COOKIE["id"] = "";
+// 	setcookie("id", "", time() - 60*60);
+// 	$_COOKIE["id"] = "";
+	 
 
-}else if((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE)AND $_COOKIE['id'])){
+// }else if((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE)AND $_COOKIE['id'])){
+// 	header("Location: loggedinpage.php");
 
+// }
+
+
+if((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE)AND $_COOKIE['id'])){
 	header("Location: loggedinpage.php");
-
 }
 
 if (array_key_exists("submit", $_POST )) {
@@ -49,7 +54,7 @@ if (array_key_exists("submit", $_POST )) {
 			 }
 			 else{
 			 	$query = "INSERT INTO users(email, password) VALUES('".mysqli_real_escape_string($link, $_POST['email'])."', '".mysqli_real_escape_string($link, $_POST['password'])."')";
-
+				$id = mysqli_insert_id($link);
 			 	if(!mysqli_query($link, $query)){
 			 		$error = "<p> Could not sign you up - please try again later.</p>";
 			 	}else{
@@ -58,7 +63,9 @@ if (array_key_exists("submit", $_POST )) {
 
 			 			mysqli_query($link, $query);
 
-			 			$_SESSION['id'] = mysqli_insert_id($link);
+						 $_SESSION['id'] = $id;
+						 
+						//  echo $_SESSION['id'];
 
 			 			if ($_POST['stayLoggedIn'] == 1) {
 			 				# code...

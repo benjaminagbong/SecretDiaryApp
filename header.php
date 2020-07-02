@@ -13,7 +13,7 @@
     <style type="text/css">
     	body{
     		background: none;
-    		color: #fff;
+    		/* color: #fff; */
     	}
 
     	.container{
